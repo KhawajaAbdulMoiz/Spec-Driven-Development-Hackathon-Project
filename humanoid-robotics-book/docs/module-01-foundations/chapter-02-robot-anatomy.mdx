@@ -3,57 +3,169 @@ title: Chapter 2 - Robot Anatomy
 sidebar_position: 2
 ---
 
+import ExerciseBlock from '@site/src/components/ExerciseBlock';
+
 # Chapter 2: Robot Anatomy
 
 ## Learning Objectives
 
 By the end of this chapter, you will:
-- Identify the main components of a robot
+- Identify the main components of every robot
 - Understand how different robot types differ in structure
-- Learn about the robot's power systems
-- Understand the basic robot chassis types
+- Learn about power systems and their role in robotics
+- Understand the basic robot chassis types and their applications
 
 ## Introduction
 
-Every robot, regardless of its purpose, has common components. Understanding robot anatomy is the first step to becoming a roboticist.
+Just as biologists study animal anatomy to understand how living things work, roboticists must understand robot anatomy to design and build effective robots. Every robot, from a simple vacuum to a humanoid, shares fundamental components organized in similar ways.
 
-### Placeholder Content
+## Basic Robot Components
 
-**Topics to be covered:**
-- Basic robot components
-- Chassis types (wheeled, legged, aerial)
-- Power systems and batteries
-- Computer systems
+All robots share five core components:
+
+### 1. **Chassis (Structure)**
+The robot's body or frame that holds everything together.
+- Provides mechanical strength
+- Determines the robot's size, shape, and form factor
+- Must be lightweight but sturdy
+- Examples: Metal frame, plastic body, aluminum exoskeleton
+
+### 2. **Actuators (Movement)**
+Devices that create motion and apply force.
+- Electric motors are most common in robotics
+- Types: DC motors, servo motors, stepper motors
+- Hydraulic and pneumatic actuators used in heavy-duty applications
+- Enable the robot to move, manipulate, and interact
+
+### 3. **Sensors (Perception)**
+Devices that detect information about the environment.
+- Vision sensors (cameras)
+- Distance sensors (ultrasonic, LiDAR)
+- Touch sensors (pressure, force)
+- Motion sensors (accelerometers, gyroscopes)
+- Environmental sensors (temperature, humidity)
+
+### 4. **Control System (Brain)**
+The computer and electronics that make decisions.
+- Microcontroller or full computer
+- Receives sensor data
+- Processes information
+- Sends commands to actuators
+- Examples: Arduino, Raspberry Pi, NVIDIA Jetson
+
+### 5. **Power System (Energy)**
+Batteries or power supplies that energize everything.
+- Rechargeable lithium batteries most common
+- Power consumption depends on actuators used
+- Runtime limited by battery capacity
+- Must account for voltage requirements of different components
+
+## Robot Chassis Types
+
+Different robot types use different chassis designs optimized for their environment and task:
+
+### **Wheeled Robots**
+- **Advantages**: Fast, efficient, simple mechanics
+- **Disadvantages**: Limited on rough terrain, can't climb stairs
+- **Uses**: Vacuum cleaners, delivery robots, warehouse robots
+- **Examples**: iRobot Roomba, AMR (Autonomous Mobile Robots)
+
+### **Legged Robots**
+- **Advantages**: Can traverse complex terrain, climb stairs, navigate obstacles
+- **Disadvantages**: Complex mechanics, energy-intensive, slower
+- **Uses**: Inspection, search and rescue, entertainment
+- **Examples**: Boston Dynamics Spot (4-legged), ASIMO (humanoid)
+
+### **Aerial Robots (Drones)**
+- **Advantages**: Access to elevated areas, wide coverage, speed
+- **Disadvantages**: Limited flight time, weather-dependent, regulatory restrictions
+- **Uses**: Delivery, surveillance, photography, mapping
+- **Examples**: DJI Phantom, commercial drones
+
+### **Manipulators (Robotic Arms)**
+- **Advantages**: High precision, strong grip, flexible movement
+- **Disadvantages**: Stationary unless on mobile base, limited workspace
+- **Uses**: Manufacturing, assembly, surgery, research
+- **Examples**: ABB Industrial Arms, Collaborative Robots (Cobots)
+
+### **Hybrid Systems**
+- Combine multiple locomotion types for maximum flexibility
+- Example: Mobile manipulator = wheeled base + robotic arm
+- Used in modern manufacturing and research
+
+## Power Systems in Robotics
+
+### Battery Chemistry and Types
+
+**Lithium-Ion (Li-Ion)**
+- Most popular in modern robots
+- Good energy density, reasonable cost
+- Used in: Drones, mobile robots, consumer electronics
+
+**Lead-Acid**
+- Older technology, heavier
+- Good for stationary industrial robots
+- Lower cost but limited lifespan
+
+**Nickel-Metal Hydride (NiMH)**
+- Safer than Li-Ion but lower energy density
+- Used in some educational robots
+
+### Power Considerations
+
+Every robot designer must balance:
+- **Runtime**: How long can the robot operate?
+- **Weight**: Heavier batteries add mass (especially problematic for aerial robots)
+- **Cost**: Battery can be 20-30% of robot cost
+- **Charging Time**: How quickly can it recharge for next deployment?
+- **Safety**: Proper thermal management to prevent fires
 
 ## Did You Know?
 
-*Interesting fact about robot design coming soon.*
-
-## Real-World Examples
-
-1. **iRobot Roomba** - Wheeled robotic vacuum
-2. **DJI Drones** - Aerial robots
-3. **Boston Dynamics Atlas** - Humanoid legged robot
+Boston Dynamics' Spot has a battery that lasts about 3 hours of continuous operation with a single charge. The team had to carefully design the robot's mechanical and electrical systems to maximize efficiency and runtime.
 
 ## Key Takeaways
 
-- To be added during Phase 4
+- **Five Core Components**: Chassis, Actuators, Sensors, Control System, Power System
+- **Chassis Types**: Wheeled (fast, simple), Legged (agile, complex), Aerial (fast, limited), Manipulators (precise, stationary)
+- **Actuators Enable Motion**: Motors convert electrical energy into mechanical movement
+- **Power is Critical**: Battery capacity and efficiency determine robot runtime
+- **Integrated Design**: All components must work together harmoniously
 
 ## Try It!
 
-*Interactive activity about robot components coming soon.*
+**Activity: Analyze a Robot's Anatomy**
+
+Choose a real robot (you can find videos online of Boston Dynamics Spot, Roomba, or other robots). Try to identify:
+1. What is its chassis type? (wheeled, legged, aerial, arm?)
+2. What actuators might it use?
+3. What sensors can you see or infer?
+4. Where might the control system be located?
+5. How might it be powered?
 
 ## Exercises
 
-1. *Question to be added*
-2. *Question to be added*
-3. *Question to be added*
+<ExerciseBlock title="Comprehension Questions" difficulty="beginner">
+1. List the five core components of any robot.
+2. What is the main advantage of wheeled robots compared to legged robots?
+3. Why is the power system important in robot design?
+</ExerciseBlock>
+
+<ExerciseBlock title="Application" difficulty="intermediate">
+4. If you needed to design a robot to explore a factory floor and detect obstacles, which chassis type would you choose and why?
+5. How would you decide between using a DC motor vs. a servo motor for a specific application?
+</ExerciseBlock>
+
+<ExerciseBlock title="Design Challenge" difficulty="advanced">
+6. Design a robot for a specific task (e.g., window cleaning on tall buildings). Sketch its anatomy and explain each component choice.
+</ExerciseBlock>
 
 ## Further Reading
 
-- Chapter 1: What is Physical AI?
-- Chapter 3: Sensors and Actuators
+- **Previous:** [Chapter 1: What is Physical AI?](./chapter-01-what-is-physical-ai)
+- **Next:** [Chapter 3: Sensors and Actuators](./chapter-03-sensors-and-actuators)
+- **Related:** Module 1, Chapter 4: Robot Brains (Control Systems)
 
 ---
 
-**Next Chapter:** [Chapter 3: Sensors and Actuators](./chapter-03-sensors-and-actuators)
+**Ready to continue?** [Next: Chapter 3 - Sensors and Actuators →](./chapter-03-sensors-and-actuators)

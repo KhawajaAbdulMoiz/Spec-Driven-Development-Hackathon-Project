@@ -3,57 +3,204 @@ title: Chapter 4 - Robot Brains
 sidebar_position: 4
 ---
 
+import ExerciseBlock from '@site/src/components/ExerciseBlock';
+
 # Chapter 4: Robot Brains
 
 ## Learning Objectives
 
 By the end of this chapter, you will:
-- Understand robot control systems
-- Learn about microcontrollers and single-board computers
+- Understand robot control systems and their role
+- Learn about microcontrollers, single-board computers, and full computers
 - Understand real-time operating systems
-- Learn how robots make decisions
+- Learn how robots make autonomous decisions
+- Recognize common robot platforms
 
 ## Introduction
 
-The robot's "brain" is what controls its behavior. This brain can be simple (a microcontroller) or complex (a full computer with AI software).
+The robot's "brain" decides what the robot does. It processes sensor information, reasons about the situation, and commands the actuators. Without a brain, even the best sensors and actuators are useless.
 
-### Placeholder Content
+## Types of Robot Control Systems
 
-**Topics to be covered:**
-- Microcontrollers (Arduino, PIC)
-- Single-board computers (Raspberry Pi, Jetson)
-- Real-time operating systems
-- Control algorithms
+### Microcontrollers
+
+**What they are**: Small, dedicated computers on a single chip
+
+**Examples**:
+- Arduino (Uno, Mega, Nano)
+- Atmega, STM32
+- PIC microcontrollers
+
+**Characteristics**:
+- Very low cost ($5-50)
+- Limited processing power
+- Low power consumption
+- Good for simple robotics tasks
+
+**Ideal for**: Hobby robots, simple autonomous systems, learning robotics
+
+### Single-Board Computers
+
+**What they are**: Full computers the size of a credit card
+
+**Examples**:
+- Raspberry Pi (most popular)
+- BeagleBone
+- NVIDIA Jetson Nano / AGX Orin
+
+**Characteristics**:
+- Moderate cost ($35-500)
+- Much more powerful than microcontrollers
+- Can run full operating systems (Linux, Python)
+- Higher power consumption
+
+**Ideal for**: Educational robots, entry-level AI robots, prototyping
+
+### Full Computers
+
+**What they are**: Laptops, desktops, or embedded PCs
+
+**Examples**:
+- Industrial PCs
+- NVIDIA Jetson (high-end)
+- Custom embedded systems
+
+**Characteristics**:
+- Higher cost ($500-10,000+)
+- Extremely powerful
+- Can run complex AI algorithms
+- High power consumption
+
+**Ideal for**: Autonomous vehicles, humanoid robots, advanced AI systems
+
+## Real-Time Operating Systems (RTOS)
+
+A real-time operating system is designed to process inputs and generate outputs within guaranteed time limits.
+
+**Why robots need RTOS**:
+- Sensor-actuator loops must run predictably
+- Late response can cause failures or safety issues
+- Multiple tasks running simultaneously (sensing, processing, acting)
+
+**Common Robot RTOS**:
+- ROS (Robot Operating System) - industry standard
+- FreeRTOS - open source, lightweight
+- QNX - industrial standard
+- VxWorks - aerospace and automotive
+
+## How Robots Make Decisions
+
+### The Control Algorithm
+
+A robot's decision-making process follows an algorithm:
+
+```
+while robot_is_on:
+    1. Read all sensors
+    2. Analyze sensor data
+    3. Determine robot state
+    4. Decide on next action
+    5. Send commands to actuators
+    6. Wait for next cycle
+```
+
+This loop might run 10-1000 times per second!
+
+### Types of Decision-Making
+
+**Reactive Control**
+- Immediate response to sensor input
+- No planning or learning
+- Simple and fast
+- Example: Obstacle avoidance
+
+**Deliberative Control**
+- Plans actions before executing
+- Uses world models and reasoning
+- Slower but more intelligent
+- Example: Route planning
+
+**Hybrid Control**
+- Combines reactive and deliberative
+- Fast reactions + intelligent planning
+- Used in modern robots
+- Example: Autonomous vehicles
+
+## Common Robot Platforms
+
+### Arduino
+**Best for**: Beginners, hobby projects
+- Simple programming language
+- Massive community support
+- Cheap components available
+- Many robotics kits available
+
+### Raspberry Pi
+**Best for**: Learning, educational robots
+- Full Linux operating system
+- Python programming
+- USB ports, HDMI, wireless
+- Perfect for vision-based robots
+
+### ROS (Robot Operating System)
+**Best for**: Professional/research robots
+- Modular architecture
+- Middleware for robot development
+- Extensive library of tools
+- Industry standard
+
+### NVIDIA Jetson
+**Best for**: AI-powered robots
+- GPU acceleration for deep learning
+- Runs ROS
+- Powerful enough for autonomous driving
+- Used in research and commercial robots
 
 ## Did You Know?
 
-*Fact about robot computing coming soon.*
-
-## Real-World Examples
-
-1. **Arduino Boards** - Popular in hobbyist robotics
-2. **Raspberry Pi** - Used in educational robots
-3. **NVIDIA Jetson** - For AI-powered robots
+The original Roomba vacuum cleaner uses a very simple microcontroller to implement a reactive control algorithm. It doesn't "know" its environment—it just follows simple rules (move forward, detect cliff, turn). Yet this simple approach works remarkably well!
 
 ## Key Takeaways
 
-- To be added
+- **Brain Types**: Microcontroller, single-board computer, full computer
+- **Processing Speed**: Faster brains enable more complex reasoning
+- **Real-Time**: Robot brains must respond predictably
+- **Algorithms Matter**: The control algorithm determines robot behavior
+- **Platforms Available**: From Arduino ($25) to industrial systems ($100,000+)
 
 ## Try It!
 
-*Interactive demonstration of a simple control loop.*
+**Activity: Trace a Decision**
+
+Think of your favorite robot (real or fictional). Trace through its decision-making process:
+1. What does it sense?
+2. How does it process that information?
+3. What decisions does it make?
+4. What actions result?
 
 ## Exercises
 
-1. Question
-2. Question
-3. Question
+<ExerciseBlock title="Comprehension Questions" difficulty="beginner">
+1. What is the difference between a microcontroller and a single-board computer?
+2. Why do robots need real-time operating systems?
+3. Name three platforms used for robot control.
+</ExerciseBlock>
+
+<ExerciseBlock title="Application" difficulty="intermediate">
+4. If you were building a delivery robot, what brain platform would you choose and why?
+5. Compare reactive vs. deliberative control for a specific robot task.
+</ExerciseBlock>
+
+<ExerciseBlock title="Design" difficulty="advanced">
+6. Design a control algorithm for a robot that must find and pick up objects in a room while avoiding obstacles.
+</ExerciseBlock>
 
 ## Further Reading
 
-- Chapter 3: Sensors and Actuators
-- Chapter 5: Getting Started with Robotics
+- **Previous:** [Chapter 3: Sensors and Actuators](./chapter-03-sensors-and-actuators)
+- **Next:** [Chapter 5: Getting Started with Robotics](./chapter-05-getting-started)
+- **Related:** Module 4, Chapter 18: Autonomous Agents (advanced decision-making)
 
 ---
 
-**Next Chapter:** [Chapter 5: Getting Started with Robotics](./chapter-05-getting-started)
+**Ready to continue?** [Next: Chapter 5 - Getting Started →](./chapter-05-getting-started)

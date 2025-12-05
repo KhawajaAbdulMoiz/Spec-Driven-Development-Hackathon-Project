@@ -3,57 +3,281 @@ title: Chapter 5 - Getting Started with Robotics
 sidebar_position: 5
 ---
 
+import ExerciseBlock from '@site/src/components/ExerciseBlock';
+
 # Chapter 5: Getting Started with Robotics
 
 ## Learning Objectives
 
 By the end of this chapter, you will:
-- Understand what it takes to get started in robotics
-- Know about different robotics platforms for beginners
-- Understand common programming languages for robotics
-- Learn about robotics communities and resources
+- Know what's needed to get started in robotics
+- Understand different robotics platforms for beginners
+- Know common programming languages for robotics
+- Understand the robotics community and resources
+- Have a pathway to build your first robot
 
 ## Introduction
 
-Ready to build your first robot? This chapter covers what you need to know to get started on your robotics journey.
+You've learned the theory of robotics. Now it's time to build! This chapter shows you how to actually get started building robots, from choosing a platform to joining the community.
 
-### Placeholder Content
+## Path 1: The Budget-Friendly Route ($30-100)
 
-**Topics to be covered:**
-- Starter kits and platforms
-- Programming languages for robotics
-- Tools and software
-- Communities and learning resources
+### Start with Arduino
+
+Arduino is the perfect entry point. It's:
+- Inexpensive ($20-50)
+- Beginner-friendly
+- Supported by massive community
+- Powerful enough for real projects
+
+**What you need**:
+1. Arduino microcontroller board ($25)
+2. Basic sensor kit ($20-30) - LEDs, buttons, sensors
+3. Motor shield ($10-15) - to control motors
+4. Breadboard and jumper wires ($5)
+5. USB cable - probably at home already
+
+**Total**: $60-80
+
+**First projects**:
+- LED blinking (learning to program)
+- Button-controlled LED (input/output)
+- Motor speed control
+- Simple obstacle-avoiding robot
+
+**Resources**:
+- Arduino.cc - official tutorials
+- Tinkercad - web-based simulator
+- YouTube - thousands of tutorials
+
+## Path 2: The Educational Route ($50-200)
+
+### Robot Kits for Beginners
+
+**LEGO Mindstorms**
+- Cost: $300-500
+- Ideal for: Age 10+, education
+- Strengths: Modular, no soldering, great tutorials
+- Programming: Visual blocks or Python
+
+**VEX Robotics**
+- Cost: $400-800
+- Ideal for: Competition preparation
+- Strengths: Industry-standard, competition support
+- Programming: C++ and Python
+
+**Raspberry Pi Robotics Kits**
+- Cost: $100-250
+- Ideal for: Intermediate learners
+- Strengths: Real computer, GPIO pins, camera support
+- Programming: Python
+
+## Path 3: The Advanced Route ($200-1000+)
+
+### Build from Components
+
+**You'll need**:
+1. Single-board computer (Raspberry Pi $35 or Jetson Nano $99)
+2. Mobile robot chassis ($50-100)
+3. Motors and servos ($30-50)
+4. Sensors - cameras, distance sensors ($50-200)
+5. Power system - batteries, charging ($20-50)
+6. Development environment - free (Linux, Python)
+
+**Advantages**:
+- Maximum customization
+- Learn real engineering
+- Build professional projects
+- Most flexible
+
+**Disadvantages**:
+- Requires soldering and wiring
+- More complex debugging
+- Steeper learning curve
+
+## Programming Languages for Robotics
+
+### Arduino/C++
+**Best for**: Embedded systems, microcontrollers
+- Low-level control
+- Efficient
+- Steep learning curve
+```cpp
+void setup() {
+  pinMode(LED_PIN, OUTPUT);
+}
+void loop() {
+  digitalWrite(LED_PIN, HIGH);
+  delay(1000);
+}
+```
+
+### Python
+**Best for**: Raspberry Pi, high-level programming
+- Easy to learn
+- Great libraries (OpenCV for vision, numpy for math)
+- Powerful for AI/ML
+```python
+from gpiozero import LED
+led = LED(17)
+led.on()
+```
+
+### ROS (Robot Operating System)
+**Best for**: Professional robots, research
+- Industry standard
+- Modular architecture
+- Supports Python and C++
+- Steep learning curve but powerful
+
+### Visual Blocks (Scratch-like)
+**Best for**: Complete beginners
+- No typing
+- Immediate visual feedback
+- Limited power but intuitive
+- Used in LEGO and many kits
+
+## The Robotics Community
+
+### Online Communities
+
+**Reddit**:
+- r/robotics - general discussion
+- r/Arduino - Arduino specific
+- r/RaspberryPi - Raspberry Pi specific
+
+**Forums**:
+- Arduino Forum - official support
+- Robot Operating System - ROS community
+- SeeedStudio - electronics community
+
+**Social Media**:
+- YouTube - thousands of robot channels
+- GitHub - open source projects
+- Twitter/X - robotics researchers and makers
+
+### Local Communities
+
+**Makerspaces**:
+- Local workshops with tools and equipment
+- Community classes on robotics
+- Access to 3D printers, laser cutters, soldering
+
+**Robotics Clubs**:
+- University robotics teams
+- High school competitions (VEX, FIRST)
+- Hobbyist maker groups
+
+**Competitions**:
+- FIRST Robotics - high school competitions
+- VEX Robotics - middle and high school
+- BattleBots - entertainment and engineering
+- Open-source competitions - many online
+
+## Building Your First Robot
+
+### 3-Step Process
+
+**Step 1: Start Simple**
+- Build a basic obstacle-avoiding robot
+- Uses: Ultrasonic sensor, DC motors, microcontroller
+- Objective: Learn the fundamentals
+- Time: 1-2 weeks
+
+**Step 2: Add Complexity**
+- Add vision using camera
+- Implement decision-making
+- Add more sensors
+- Time: 2-4 weeks
+
+**Step 3: Add Intelligence**
+- Implement machine learning
+- Add voice control
+- Create autonomous behavior
+- Time: 4-8 weeks
+
+### Common Beginner Project Ideas
+
+1. **Line-Following Robot** - Follows a black line using sensors
+2. **Obstacle-Avoiding Robot** - Navigates around obstacles
+3. **Ball-Following Robot** - Uses camera to track colored ball
+4. **Autonomous Lawn Mower** - Learns to mow grass
+5. **Delivery Robot** - Navigates a defined route
+6. **Robotic Arm** - Simple pick-and-place arm
+7. **Drone** - Quadcopter with flight control
 
 ## Did You Know?
 
-*Fact about popular robotics platforms.*
-
-## Real-World Examples
-
-1. **LEGO Mindstorms** - Educational robotics platform
-2. **VEX Robotics** - Competition robotics platform
-3. **ROS (Robot Operating System)** - Professional robotics framework
+The first Arduino board was created in Italy in 2005 to make robotics accessible to students. It's now sold in millions of units worldwide and has powered countless robotics projects, from beginner hobbyist projects to professional applications!
 
 ## Key Takeaways
 
-- To be added
+- **Start Small**: Arduino is the best entry point
+- **Choose Your Path**: Budget-friendly, educational, or advanced
+- **Learn to Program**: Python or Arduino C++
+- **Join Community**: Online or local - support is everywhere
+- **Build Projects**: Hands-on experience is essential
+- **Iterate**: Your first robot won't be perfect - that's OK!
 
 ## Try It!
 
-*Simulation activity for beginners.*
+**Activity: Plan Your First Robot**
+
+1. Choose a budget ($0-50, $50-200, $200+)
+2. Pick a platform (Arduino, Raspberry Pi, or kit)
+3. Identify a first project (line-follower, obstacle-avoider, etc.)
+4. Write down required parts
+5. Find tutorials online
+6. Set a build deadline
 
 ## Exercises
 
-1. Question
-2. Question
-3. Question
+<ExerciseBlock title="Planning" difficulty="beginner">
+1. What budget are you comfortable with for a first robot?
+2. Which platform appeals to you most: Arduino, Raspberry Pi, or LEGO?
+3. What's your main goal: learning, competition, or fun?
+</ExerciseBlock>
+
+<ExerciseBlock title="Research" difficulty="intermediate">
+4. Find three YouTube tutorials for your chosen platform and watch 5 minutes of each.
+5. Find a local makerspace or robotics club near you (online if not locally available).
+6. Research the cost of parts for your first robot project.
+</ExerciseBlock>
+
+<ExerciseBlock title="Planning" difficulty="advanced">
+7. Design a robotics learning path for yourself with specific milestones over the next 6-12 months.
+8. Identify what programming skills you need to develop.
+</ExerciseBlock>
 
 ## Further Reading
 
-- Module 2: Perception and Sensing
-- Chapter 1: What is Physical AI?
+- **Previous:** [Chapter 4: Robot Brains](./chapter-04-robot-brains)
+- **Next Module:** [Module 2: Perception and Sensing](/docs/module-02-perception/intro)
+- **Appendix Resources**: Recommended kits, online courses, communities
 
 ---
 
-**Next Module:** [Module 2: Perception and Sensing](/docs/module-02-perception/intro)
+## Resources
+
+**Official Platforms**:
+- Arduino: https://www.arduino.cc
+- Raspberry Pi: https://www.raspberrypi.org
+- ROS: https://www.ros.org
+
+**Learning Platforms**:
+- Tinkercad: https://www.tinkercad.com
+- Coursera: Robotics courses
+- edX: Robotics and AI courses
+
+**Community**:
+- r/robotics on Reddit
+- Arduino Forum
+- ROS Discourse
+
+---
+
+**Congratulations on completing Module 1!** 🎉
+
+You now understand the fundamentals of robotics and physical AI. You've learned about robot anatomy, sensors, actuators, control systems, and how to get started building.
+
+Ready to dive deeper? [Continue to Module 2: Perception and Sensing →](/docs/module-02-perception/intro)

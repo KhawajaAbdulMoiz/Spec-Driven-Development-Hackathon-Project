@@ -3,57 +3,180 @@ title: Chapter 3 - Sensors and Actuators
 sidebar_position: 3
 ---
 
+import ExerciseBlock from '@site/src/components/ExerciseBlock';
+
 # Chapter 3: Sensors and Actuators
 
 ## Learning Objectives
 
 By the end of this chapter, you will:
-- Understand what sensors do
-- Understand what actuators do
-- Identify common sensor types
-- Identify common actuator types
+- Understand the critical role of sensors in robotics
+- Identify common sensor types and their applications
+- Learn how actuators translate commands into motion
 - Understand the sensor-brain-actuator loop
+- Recognize real-world implementations of both technologies
 
 ## Introduction
 
-Sensors allow robots to perceive their environment, while actuators allow them to act. Together, these form the foundation of robot interaction with the world.
+If a robot's chassis is its body and the control system is its brain, then sensors and actuators are its senses and muscles. They form the interface between the digital world (computation) and the physical world (reality).
 
-### Placeholder Content
+**Sensors** give robots information about their environment. **Actuators** allow robots to act on that information. Together, they create a continuous feedback loop that enables intelligent behavior.
 
-**Topics to be covered:**
-- Sensor types (touch, distance, vision, etc.)
-- Actuator types (motors, hydraulics, pneumatics)
-- The feedback loop
+## Sensors: How Robots Perceive
+
+A sensor is any device that detects a physical stimulus and produces a signal representing that stimulus.
+
+### Common Sensor Types
+
+**Distance Sensors**
+- Ultrasonic sensors: Use sound waves, similar to sonar
+- Infrared sensors: Use light, good for short distances
+- LiDAR: Laser-based, highly accurate, used in autonomous vehicles
+- Application: Obstacle detection, navigation
+
+**Visual Sensors (Cameras)**
+- RGB cameras: Standard color images
+- Depth cameras: Produce 3D information
+- Thermal cameras: Detect heat signatures
+- Application: Object recognition, navigation, inspection
+
+**Touch and Force Sensors**
+- Pressure sensors: Detect physical contact
+- Force sensors: Measure applied force or weight
+- Tactile sensors: Mimic human touch
+- Application: Grasping, assembly, safety
+
+**Motion Sensors**
+- Accelerometers: Detect acceleration and gravity
+- Gyroscopes: Detect rotation
+- IMU (Inertial Measurement Unit): Combines accelerometer and gyroscope
+- Application: Balance, orientation, impact detection
+
+**Environmental Sensors**
+- Temperature sensors: Detect heat
+- Humidity sensors: Detect moisture
+- Gas sensors: Detect chemical compounds
+- Application: Environmental monitoring, safety
+
+### Sensor Properties
+
+When choosing a sensor, engineers consider:
+- **Accuracy**: How close to true value?
+- **Precision**: How repeatable are measurements?
+- **Range**: What are minimum and maximum values?
+- **Response Time**: How quickly does it react?
+- **Cost**: Budget constraints
+- **Durability**: Expected lifespan
+
+## Actuators: How Robots Act
+
+An actuator is a device that converts energy (usually electrical) into mechanical motion or force.
+
+### Electric Motors (Most Common)
+
+**DC Motors**
+- Simple, reliable, inexpensive
+- Speed controlled by voltage
+- Produce continuous rotation
+- Used in: Wheelbase drive systems, fans, pumps
+
+**Servo Motors**
+- Can rotate to specific positions
+- Built-in position feedback
+- Precise control
+- Used in: Robotic arms, steering systems
+
+**Stepper Motors**
+- Move in discrete steps
+- No feedback needed
+- Precise positioning
+- Used in: 3D printers, industrial equipment
+
+**Brushless Motors**
+- More efficient than DC motors
+- Require electronic controllers
+- Used in: Drones, high-performance robots
+
+### Other Actuator Types
+
+**Hydraulic Actuators**
+- Extremely powerful
+- Heavy, complex, require fluid systems
+- Used in: Excavators, heavy industrial equipment
+
+**Pneumatic Actuators**
+- Powered by compressed air
+- Lightweight, simple, safe
+- Used in: Grippers, light industrial applications
+
+## The Sensor-Brain-Actuator Loop
+
+This is the fundamental cycle that makes robots intelligent:
+
+1. **Sense**: Sensors gather information about the environment
+2. **Process**: The control system analyzes sensor data and makes decisions
+3. **Act**: Actuators execute the decision through physical action
+4. **Feedback**: The system senses the result and repeats
+
+This loop runs continuously, allowing robots to adapt to changing conditions.
+
+### Example: Autonomous Vacuum
+
+- **Sense**: Bumper sensor detects obstacle
+- **Process**: Brain determines robot is blocked
+- **Act**: Motor reverses, rotates to new direction
+- **Feedback**: New sensor readings confirm new path is clear
+- **Loop**: Process repeats 10-100 times per second
 
 ## Did You Know?
 
-*Interesting robotics fact coming soon.*
-
-## Real-World Examples
-
-1. **Ultrasonic Sensors** - Used in obstacle detection
-2. **DC Motors** - Common actuators in robotics
-3. **Pressure Sensors** - Used in collaborative robots
+A typical industrial robotic arm has 6 actuators (one for each degree of freedom) and multiple sensors. Yet it responds to commands in milliseconds! This requires careful coordination between all components.
 
 ## Key Takeaways
 
-- To be added
+- **Sensors provide perception**: Distance, vision, touch, motion, environmental
+- **Actuators provide action**: Motors (electric, pneumatic, hydraulic)
+- **The Loop is crucial**: Sense → Process → Act → Feedback
+- **Matching matters**: Correct sensor types and actuator sizes for each task
+- **Real-time**: Modern robots execute the loop hundreds of times per second
 
 ## Try It!
 
-*Interactive activity about sensors and actuators.*
+**Activity: Design a Sensor-Actuator System**
+
+Imagine a robot that needs to:
+1. Navigate around a room
+2. Avoid obstacles
+3. Find a red ball and pick it up
+
+For each task, identify:
+- What sensor(s) would you need?
+- What actuator(s) would you use?
+- How would the sensor-actuator loop work?
 
 ## Exercises
 
-1. Question
-2. Question
-3. Question
+<ExerciseBlock title="Comprehension Questions" difficulty="beginner">
+1. What is the difference between a sensor and an actuator?
+2. Name three types of sensors and what they detect.
+3. Why is the feedback loop important in robotics?
+</ExerciseBlock>
+
+<ExerciseBlock title="Application" difficulty="intermediate">
+4. You're designing a robot for warehouse inventory. What sensors would you prioritize?
+5. Compare DC motors vs. servo motors for a specific application.
+</ExerciseBlock>
+
+<ExerciseBlock title="Analysis" difficulty="advanced">
+6. Describe the sensor-actuator loop for a self-driving car navigating an intersection.
+</ExerciseBlock>
 
 ## Further Reading
 
-- Chapter 2: Robot Anatomy
-- Chapter 4: Robot Brains
+- **Previous:** [Chapter 2: Robot Anatomy](./chapter-02-robot-anatomy)
+- **Next:** [Chapter 4: Robot Brains](./chapter-04-robot-brains)
+- **Related:** Module 2: Perception and Sensing (advanced sensor topics)
 
 ---
 
-**Next Chapter:** [Chapter 4: Robot Brains](./chapter-04-robot-brains)
+**Ready to continue?** [Next: Chapter 4 - Robot Brains →](./chapter-04-robot-brains)
