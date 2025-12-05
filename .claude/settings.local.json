@@ -3,7 +3,8 @@
     "allow": [
       "Bash(powershell -Command:*)",
       "Bash(npm run build:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "ask": []

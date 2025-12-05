@@ -1,0 +1,39 @@
+.figure {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background-color: var(--ifm-pre-background);
+  border-left: 4px solid var(--ifm-color-primary);
+  border-radius: 4px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  min-height: 200px;
+}
+
+.container svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.caption {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--ifm-font-color-base);
+  margin: 0;
+}
+
+.caption strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.caption p {
+  margin: 0.5rem 0 0;
+  color: var(--ifm-font-color-secondary);
+  font-style: italic;
+}
