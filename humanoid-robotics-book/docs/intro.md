@@ -2,46 +2,82 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Welcome to the Physical AI & Humanoid Robotics Textbook
 
-Let's discover **Docusaurus in less than 5 minutes**.
+This book introduces you to the world of **Physical AI**, **Humanoid Robotics**, sensors, perception, locomotion, actuators, control systems, and modern AI-driven robot architectures.  
+It is designed for **beginners** — no robotics background required.
 
-## Getting Started
+You’ll learn using:
+- Simple, human-friendly explanations  
+- Real-world examples from Tesla Bot, Boston Dynamics, Agility Robotics, and NVIDIA  
+- Diagrams, workflows, and hands-on mini activities  
+- AI-generated insights powered by Spec-Kit, Claude, and modern RAG systems  
 
-Get started by **creating a new site**.
+---
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+## 🚀 Getting Started
 
-### What you'll need
+This book is organized into **modules and chapters**, starting from the basics and gradually moving to advanced robotics topics.
 
-- [Node.js](https://nodejs.org/en/download/) version 20.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+Click below to begin:
 
-## Generate a new site
+👉 **[Start Reading the Book](/docs/module-01-foundations/intro)**
 
-Generate a new Docusaurus site using the **classic template**.
+---
 
-The classic template will automatically be added to your project after you run the command:
+## 📘 What This Textbook Covers
 
-```bash
-npm init docusaurus@latest my-website classic
-```
+You will learn:
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+- What Physical AI is  
+- How humanoid robots perceive the world  
+- Sensors, actuators, motors, and control systems  
+- Robot locomotion (walking, balancing, movement)  
+- Real robot architectures  
+- AI Agents controlling robots  
+- Safety, challenges, and future applications  
 
-The command also installs all necessary dependencies you need to run Docusaurus.
+The content is designed to be:
+- Beginner-friendly  
+- Visually engaging  
+- Full of analogies, stories, and examples  
+- Ready for personalization and translation  
 
-## Start your site
+---
 
-Run the development server:
+## 🛠 How This Book Was Built
 
-```bash
-cd my-website
-npm run start
-```
+This project uses:
 
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
+### **Docusaurus**
+Your interactive textbook platform.
 
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
+### **Spec-Kit Plus & Claude**
+To generate high-quality, structured chapters.
 
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+### **RAG Chatbot Integration**
+A built-in AI assistant that can answer questions about the book — even based on text you select.
+
+### **Future Enhancements**
+- Personalized chapter content  
+- "Translate to Urdu" support  
+- AI subagents and reusable skills  
+
+---
+
+## 💡 How to Use This Book
+
+- Start with **Module 1** if you're a complete beginner.  
+- Use the diagrams and examples to build intuition.  
+- Try the **Exercises** at the end of every chapter.  
+- Use the **Chatbot** to ask deeper questions.  
+- Click the **Personalize** button to tailor chapters based on your background (coming soon!).  
+
+---
+
+## 🎉 Let’s Begin Your Robotics Journey
+
+Robotics is the future — and now you’re part of it.
+
+👉 **[Start Module 1 → Introduction to Physical AI](/docs/module-01-foundations/intro)**
+
