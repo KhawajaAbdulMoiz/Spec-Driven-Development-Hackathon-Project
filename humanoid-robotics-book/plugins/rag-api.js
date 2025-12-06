@@ -32,20 +32,31 @@ module.exports = function ragApiPlugin(context, options) {
       // Add RAG API endpoint
       devServer.app.post('/api/rag', async (req, res) => {
         try {
+          // Validate request body
           const { question } = req.body;
 
-          if (!question || typeof question !== 'string') {
+          if (!question || typeof question !== 'string' || question.trim().length === 0) {
+            console.warn('Invalid question format received');
             return res.status(400).json({
               error: 'Invalid question format',
               answer: 'Please provide a valid question.',
+              success: false,
             });
           }
 
-          // Use environment variable for RAG endpoint
-          const RAG_ENDPOINT = process.env.REACT_APP_RAG_ENDPOINT;
+          // Get RAG endpoint from environment variable
+          const RAG_ENDPOINT = process.env.REACT_APP_RAG_ENDPOINT || '';
+          const isConfigured = RAG_ENDPOINT &&
+                               RAG_ENDPOINT !== '{ADD_YOUR_REAL_RAG_URL_HERE}' &&
+                               RAG_ENDPOINT.startsWith('http');
+
+          // Log request for debugging
+          console.log(`[RAG API] Question received: "${question.substring(0, 100)}..."`);
+          console.log(`[RAG API] Endpoint configured: ${isConfigured ? 'YES' : 'NO (using mock)'}`);
 
           // If no RAG endpoint configured, use mock responses
-          if (!RAG_ENDPOINT || RAG_ENDPOINT === '{PUT_YOUR_RAG_ENDPOINT_HERE}') {
+          if (!isConfigured) {
+            console.log('[RAG API] Using mock response handler');
             const mockAnswer = getMockAnswer(question);
             return res.status(200).json({
               success: true,
@@ -55,47 +66,122 @@ module.exports = function ragApiPlugin(context, options) {
             });
           }
 
-          // Call actual RAG endpoint
-          const response = await fetch(RAG_ENDPOINT, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'Accept': 'application/json',
-            },
-            body: JSON.stringify({ question }),
-            timeout: 30000,
-          });
+          // Forward request to actual RAG backend with proper error handling
+          console.log(`[RAG API] Forwarding to: ${RAG_ENDPOINT}`);
+          let ragResponse;
 
-          if (!response.ok) {
-            console.error(`RAG endpoint error: ${response.status}`);
-            const mockAnswer = getMockAnswer(question);
+          try {
+            ragResponse = await fetch(RAG_ENDPOINT, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+              },
+              body: JSON.stringify({ question }),
+              timeout: 30000,
+            });
+          } catch (fetchError) {
+            // Network error - log and provide fallback
+            console.error(`[RAG API] Network error calling RAG endpoint: ${fetchError.message}`);
+            console.error('[RAG API] Stack:', fetchError.stack);
+            const fallbackAnswer = getMockAnswer(question);
             return res.status(200).json({
               success: true,
-              answer: mockAnswer,
+              answer: fallbackAnswer,
               timestamp: new Date().toISOString(),
               source: 'fallback',
+              error: `Network error: ${fetchError.message}`,
             });
           }
 
-          const data = await response.json();
-          const answer = data.answer || data.response || 'No answer found';
+          // Handle non-OK HTTP responses from RAG endpoint
+          if (!ragResponse.ok) {
+            const statusCode = ragResponse.status;
+            const statusText = ragResponse.statusText;
+            console.error(`[RAG API] RAG endpoint returned ${statusCode} ${statusText}`);
 
+            // Try to read error response body
+            let errorBody = '';
+            try {
+              errorBody = await ragResponse.text();
+              console.error(`[RAG API] RAG error response: ${errorBody.substring(0, 200)}`);
+            } catch (e) {
+              console.error(`[RAG API] Could not read error response body`);
+            }
+
+            // Provide safe fallback response
+            const fallbackAnswer = getMockAnswer(question);
+            return res.status(200).json({
+              success: true,
+              answer: fallbackAnswer,
+              timestamp: new Date().toISOString(),
+              source: 'fallback',
+              error: `RAG service error: ${statusCode} ${statusText}`,
+            });
+          }
+
+          // Parse successful response
+          let data;
+          try {
+            data = await ragResponse.json();
+            console.log('[RAG API] Successfully parsed RAG response');
+          } catch (parseError) {
+            console.error(`[RAG API] Failed to parse RAG response: ${parseError.message}`);
+            const fallbackAnswer = getMockAnswer(question);
+            return res.status(200).json({
+              success: true,
+              answer: fallbackAnswer,
+              timestamp: new Date().toISOString(),
+              source: 'fallback',
+              error: `Failed to parse RAG response: ${parseError.message}`,
+            });
+          }
+
+          // Extract answer from response (support multiple response formats)
+          const answer = data.answer || data.response || data.text || 'No answer found';
+          if (!answer || typeof answer !== 'string') {
+            console.warn('[RAG API] RAG response missing or invalid answer field');
+            const fallbackAnswer = getMockAnswer(question);
+            return res.status(200).json({
+              success: true,
+              answer: fallbackAnswer,
+              timestamp: new Date().toISOString(),
+              source: 'fallback',
+              error: 'Invalid RAG response format',
+            });
+          }
+
+          // Return successful response
+          console.log('[RAG API] Returning RAG response successfully');
           return res.status(200).json({
             success: true,
             answer,
             timestamp: new Date().toISOString(),
             source: 'rag',
           });
-        } catch (error) {
-          console.error('RAG API error:', error.message);
-          const mockAnswer = getMockAnswer(req.body.question || '');
 
+        } catch (error) {
+          // Catch-all error handler
+          console.error(`[RAG API] Unexpected error: ${error.message}`);
+          console.error('[RAG API] Stack:', error.stack);
+
+          // Safely extract question for fallback
+          let question = '';
+          try {
+            question = req.body?.question || '';
+          } catch (e) {
+            console.error('[RAG API] Could not extract question from request');
+          }
+
+          const mockAnswer = getMockAnswer(question);
+
+          // Always return a successful response with safe fallback content
           return res.status(200).json({
             success: true,
             answer: mockAnswer,
             timestamp: new Date().toISOString(),
             source: 'fallback',
-            error: process.env.NODE_ENV === 'development' ? error.message : undefined,
+            error: process.env.NODE_ENV === 'development' ? error.message : 'Server error occurred',
           });
         }
       });
