@@ -35,6 +35,10 @@ const config: Config = {
     locales: ['en', 'ur'],
   },
 
+  plugins: [
+    require.resolve('./plugins/rag-api.js'),
+  ],
+
   presets: [
     [
       'classic',
@@ -71,13 +75,21 @@ const config: Config = {
     image: 'img/docusaurus-social-card.jpg',
     colorMode: {
       respectPrefersColorScheme: true,
+      defaultMode: 'light',
+      disableSwitch: false,
+    },
+    // Bluish gradient color scheme
+    colors: {
+      primaryColor: '#4e9eff',
+      secondaryColor: '#6fb1ff',
     },
     navbar: {
-      title: 'Robotics Textbook',
+      title: '🤖 Robotics Textbook',
       logo: {
         alt: 'Robotics Logo',
         src: 'img/logo.svg',
       },
+      style: 'primary',
       items: [
         {
           type: 'docSidebar',
