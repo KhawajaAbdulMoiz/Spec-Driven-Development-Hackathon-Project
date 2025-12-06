@@ -7,7 +7,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'Physical AI & Humanoid Robotics Textbook',
   tagline: 'Learn robotics from first principles with real-world examples',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.png',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -84,10 +84,10 @@ const config: Config = {
       secondaryColor: '#6fb1ff',
     },
     navbar: {
-      title: '🤖 Robotics Textbook',
+      title: 'Robotics Textbook',
       logo: {
         alt: 'Robotics Logo',
-        src: 'img/logo.svg',
+        src: 'img/favicon.png',
       },
       style: 'primary',
       items: [

@@ -9,6 +9,9 @@
 const path = require('path');
 
 module.exports = function ragApiPlugin(context, options) {
+  console.log('✅ RAG API Plugin loaded successfully!');
+  console.log('🔧 Environment:', process.env.NODE_ENV);
+  console.log('📡 API will be available at: /api/rag');
   return {
     name: 'docusaurus-plugin-rag-api',
 
