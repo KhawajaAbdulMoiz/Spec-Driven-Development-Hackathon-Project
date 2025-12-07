@@ -149,22 +149,9 @@ customFields: {
 <img width="3424" height="1319" alt="image" src="https://github.com/user-attachments/assets/248a7469-1313-4c52-a94d-51dd825ee099" />
 <img width="3433" height="1325" alt="image" src="https://github.com/user-attachments/assets/6064624c-ccd0-4bed-9d73-ad988591db3f" />
 
-```
 
----
 
-## 🗞️ **Blog**
 
-The project includes a blog for:
-
-* Project updates
-* Chapter announcements
-* RAG improvements
-* Design decisions
-
-Located in `/blog/`.
-
----
 
 ## 🧩 **Contributing**
 
@@ -210,11 +197,7 @@ You are free to use, modify, and distribute it.
 
 If you find this project helpful, star the repo!
 
-```
 ⭐ github.com/KhawajaAbdulMoiz
-```
-
----
 
 If you want, I can also generate:
 
