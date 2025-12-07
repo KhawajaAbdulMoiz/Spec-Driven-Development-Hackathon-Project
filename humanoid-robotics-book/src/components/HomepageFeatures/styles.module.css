@@ -9,3 +9,36 @@
   height: 200px;
   width: 200px;
 }
+.featuresSection {
+  padding: 4rem 0;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #fff;
+}
+
+.featureCard {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 1rem 0;
+  text-align: center;
+  transition: transform 0.3s ease, background 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.featureCard:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.featureTitle {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #2f576e; 
+}
+
+.featureDescription {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #e0e0e0;
+}
