@@ -17,7 +17,8 @@
  * Set environment variable: REACT_APP_RAG_ENDPOINT=https://your-service.com/api/rag
  */
 
-const RAG_ENDPOINT = process.env.REACT_APP_RAG_ENDPOINT || '{ADD_YOUR_REAL_RAG_URL_HERE}';
+import config from '@generated/docusaurus.config';
+const RAG_ENDPOINT = config.customFields.ragEndpoint;
 
 /**
  * Main RAG endpoint handler
