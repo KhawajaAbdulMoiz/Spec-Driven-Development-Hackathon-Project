@@ -4,7 +4,9 @@
       "Bash(powershell -Command:*)",
       "Bash(npm run build:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash($env:SPECIFY_FEATURE=\"001-robotics-textbook\")",
+      "Bash(SPECIFY_FEATURE=\"001-robotics-textbook\" powershell:*)"
     ],
     "deny": [],
     "ask": []

@@ -1,5 +1,5 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
+import { themes as prismThemes } from 'prism-react-renderer';
+import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
@@ -15,7 +15,7 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://humanoid-robotics-book.github.io',
+  url: 'https://spec-driven-development-hackathon-p.vercel.app/',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -47,7 +47,7 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           // Edit this page links point to GitHub
           editUrl:
-            'https://github.com/SpecDrivenDevelopment/humanoid-robotics-book/tree/main/',
+            'https://github.com/KhawajaAbdulMoiz/Spec-Driven-Development-Hackathon-Project/tree/main/',
         },
         blog: {
           showReadingTime: true,
@@ -57,7 +57,7 @@ const config: Config = {
           },
           // Edit blog post links point to GitHub
           editUrl:
-            'https://github.com/SpecDrivenDevelopment/humanoid-robotics-book/tree/main/',
+            'https://github.com/KhawajaAbdulMoiz/Spec-Driven-Development-Hackathon-Project/tree/main/',
           // Enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
@@ -97,10 +97,10 @@ const config: Config = {
           position: 'left',
           label: 'Modules',
         },
-        {to: '/about', label: 'About', position: 'left'},
-        {to: '/how-to-use', label: 'How to Use', position: 'left'},
+        { to: '/about', label: 'About', position: 'left' },
+        { to: '/how-to-use', label: 'How to Use', position: 'left' },
         {
-          href: 'https://github.com/SpecDrivenDevelopment/humanoid-robotics-book',
+          href: 'https://github.com/KhawajaAbdulMoiz/Spec-Driven-Development-Hackathon-Project',
           label: 'GitHub',
           position: 'right',
         },
@@ -139,23 +139,25 @@ const config: Config = {
             },
             {
               label: 'GitHub Repository',
-              href: 'https://github.com/SpecDrivenDevelopment/humanoid-robotics-book',
+              href: 'https://github.com/KhawajaAbdulMoiz/Spec-Driven-Development-Hackathon-Project',
             },
           ],
         },
         {
-          title: 'More',
+          title: 'Catch Me Here',
           items: [
             {
-              label: 'Blog',
-              to: '/blog',
+              label: 'LinkedIn',
+              href: 'https://www.linkedin.com/in/khawaja-abdul-moiz/',
             },
             {
-              label: 'Report Issue',
-              href: 'https://github.com/SpecDrivenDevelopment/humanoid-robotics-book/issues',
+              label: 'GitHub',
+              href: 'https://github.com/KhawajaAbdulMoiz',
             },
           ],
         },
+
+
       ],
       copyright: `Copyright © ${new Date().getFullYear()} SpecDrivenDevelopment. Learn Physical AI & Humanoid Robotics. Built with Docusaurus.`,
     },
