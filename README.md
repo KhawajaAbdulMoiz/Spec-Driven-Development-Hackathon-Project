@@ -20,8 +20,6 @@ It explores robotics concepts such as:
 
 All content is built using **Docusaurus 3**, enhanced with **custom UI components, floating animations**, and a clean, modern landing page.
 
-The development workflow uses **Speckit** for automated, spec-driven iteration and **RAG embeddings** for the built-in chatbot.
-
 ---
 
 ## 🎯 **Key Features**
